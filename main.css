@@ -6,6 +6,7 @@
     --second-color: #94484c;
     --big-font-size: 28px;
     --small-font-size: 18px;
+    --thin-font-weight: 150;
 }
 
 body,
@@ -154,6 +155,7 @@ header {
 .description__text {
     font-size: var(--small-font-size);
     line-height: 1.6;
+    font-weight: var(--thin-font-weight);
 }
 
 .description__text--big {
@@ -180,6 +182,7 @@ header {
     margin-bottom: 15px;
     font-size: var(--small-font-size);
     text-align: justify;
+    font-weight: var(--thin-font-weight);
 }
 
 .works__item--list::before {
@@ -222,6 +225,7 @@ header {
 .price-container__item-name,
 .price-container__item-price {
     font-size: var(--small-font-size);
+    font-weight: var(--thin-font-weight);
 }
 
 .price-container__item-name {
@@ -245,6 +249,7 @@ header {
     background-color: var(--main-color);
     text-align: center;
     padding: 10px;
+    font-weight: var(--thin-font-weight);
 }
 
 /* carousel-container */
@@ -297,6 +302,7 @@ header {
     margin-bottom: 10px;
     display: block;
     font-size: var(--small-font-size)*0.8;
+    font-weight: var(--thin-font-weight);
 }
 
 .review-text {
@@ -305,6 +311,7 @@ header {
     color: #666;
     text-align: justify;
     margin: auto;
+    font-weight: var(--thin-font-weight);
 }
 
 .carousel-prev,
@@ -342,18 +349,18 @@ header {
 }
 
 .write-me-button {
-    background-color: var(--main-color);
+    background-color: var(--second-color);
     font-size: var(--small-font-size);
-    border-radius: 20px;
-    padding: 10px 20px;
-    border-color: var(--second-color);
-    color: #000;
-
+    border-radius: 50px;
+    padding: 15px 30px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .write-me-button:hover {
-    background-color: var(--second-color);
-    color: #fff;
+    transform: scale(1.02);
 }
 
 @keyframes appearance {
@@ -414,3 +421,48 @@ header {
     }
 
 }
+
+/* .payform-tbank {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 2px auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    max-width: 250px;
+}
+
+.payform-tbank-row {
+    margin: 2px;
+    border-radius: 4px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    border: 1px solid #DFE3F3;
+    padding: 15px;
+    outline: none;
+    background-color: #DFE3F3;
+    font-size: 15px;
+}
+
+.payform-tbank-row:focus {
+    background-color: #FFFFFF;
+    border: 1px solid #616871;
+    border-radius: 4px;
+}
+
+.payform-tbank-btn {
+    background-color: #FBC520;
+    border: 1px solid #FBC520;
+    color: #3C2C0B;
+}
+
+.payform-tbank-btn:hover {
+    background-color: #FAB619;
+    border: 1px solid #FAB619;
+} */
