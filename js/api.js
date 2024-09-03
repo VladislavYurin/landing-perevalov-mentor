@@ -44,7 +44,7 @@ class API {
             const data = await response.json();
             return data;
         } catch (error) {
-            console.error('Ошибка при загрузке отзывов:', error);
+            throw error;
         }
     }
 
