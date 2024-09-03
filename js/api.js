@@ -1,7 +1,6 @@
 class API {
     constructor() {
-        //https://cors-anywhere.herokuapp.com/
-        this.url = "https://reviews.it-mentors.ru";
+        this.url = "https://proxy.cors.sh/" + "https://reviews.it-mentors.ru";
         this.id = '388052505';
         this.initMethod = "/reviews-json";
     }
@@ -33,7 +32,8 @@ class API {
                     "Access-Control-Allow-Origin": "*",
                     'Content-Type': 'application/json',
                     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-                    "Access-Control-Allow-Credentials": "true"
+                    "Access-Control-Allow-Credentials": "true",
+                    "Origin": "*"
                 }
             });
 
@@ -54,7 +54,7 @@ class API {
         const authorLine = lines[lines.length - 1];
         const author = authorLine.replace("Автор: ", "");
         lines.splice(-2);
-        const text = lines.join('\n').trim();
+        const text = lines.join('<br>').trim();
 
         return { author, text };
     }
@@ -99,7 +99,7 @@ class API {
         prevButton.addEventListener('click', () => this.showPrevReview.call(this));
         nextButton.addEventListener('click', () => this.showNextReview.call(this));
 
-        setInterval(() => this.showNextReview.call(this), 30000);
+        setInterval(() => this.showNextReview.call(this), 50000);
     }
 
     showPrevReview() {
