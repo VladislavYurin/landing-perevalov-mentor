@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
 :root {
-    --main-color: #ba9b9c;
-    --second-color: #94484c;
+    --main-color: #c2a9a2;
+    --second-color: #814043;
     --big-font-size: 28px;
     --small-font-size: 18px;
     --thin-font-weight: 150;
@@ -358,6 +358,7 @@ header {
     border: none;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
 }
 
 .write-me-button:hover {
