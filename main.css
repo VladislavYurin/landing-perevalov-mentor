@@ -139,6 +139,7 @@ header {
 }
 
 .description__title,
+.review__title,
 .works__title--main {
     font-size: 28px;
     font-weight: bold;
@@ -350,6 +351,7 @@ header {
 
 
     .description__title,
+    .review__title,
     .works__title--main,
     .price-container__title {
         font-size: 20px;
