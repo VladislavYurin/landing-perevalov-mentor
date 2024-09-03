@@ -13,7 +13,7 @@ html {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: "Roboto Flex", sans-serif;
+    font-family: 'Roboto Flex', sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -143,6 +143,7 @@ header {
 }
 
 .description__title,
+.review__title,
 .works__title--main {
     font-size: var(--big-font-size);
     font-weight: bold;
@@ -184,7 +185,7 @@ header {
 
 .works__item--list::before {
     content: "\f058";
-    font-family: "Font Awesome 5 Free";
+    font-family: "Font Awesome 5 Free", serif;
     font-weight: 900;
     color: var(--main-color);
     position: absolute;
@@ -382,6 +383,7 @@ header {
 
 
     .description__title,
+    .review__title,
     .works__title--main,
     .price-container__title,
     .carousel__title {
