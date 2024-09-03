@@ -1,6 +1,7 @@
 class API {
     constructor() {
-        this.url = "https://cors-anywhere.herokuapp.com/https://reviews.it-mentors.ru";
+        //https://cors-anywhere.herokuapp.com/
+        this.url = "https://reviews.it-mentors.ru";
         this.id = '388052505';
         this.initMethod = "/reviews-json";
     }
