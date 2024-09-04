@@ -25,8 +25,6 @@
     --font-reduction-factor-description: 0.2;
     /*Коэффициент умножения размера шрифта для отзывов*/
     --font-reduction-factor-review: 0.8;
-    /*Время пульсации кнопки "Записаться на пробный созвон"*/
-    --pulse-time-animation-button: 1.5s;
 }
 
 body,
@@ -331,6 +329,8 @@ header {
     margin: auto;
     font-weight: var(--thin-font-weight);
     padding-bottom: 10px;
+    padding-left: 12%;
+    padding-right: 12%;
 }
 
 .carousel-control-prev-icon,
@@ -351,10 +351,13 @@ header {
     opacity: 1;
 }
 
-.carousel-inner {
+/* .carousel-inner {
     padding-left: 10%;
     padding-right: 10%;
-}
+    
+} */
+
+
 
 /* write-me-button*/
 .button-container {
@@ -377,7 +380,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: pulse var(--pulse-time-animation-button) infinite ease-in-out;
 }
 
 
@@ -430,9 +432,9 @@ header {
         width: 100%;
     }
 
-    .carousel-inner {
-        padding-left: 15%;
-        padding-right: 15%;
+    .review-text{
+        padding-left: 14%;
+        padding-right: 14%;
     }
 
 }
