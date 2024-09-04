@@ -1,14 +1,32 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
 
 :root {
+    /* Основной цвет фона*/
     --main-color: #e3e3e4;
+    /* Второй цвет для кнопок и лого*/
     --second-color: #866364;
+    /* Размер заголовков для комп. версии*/
     --big-font-size: 28px;
+    /* Размер текста для комп. версии*/
     --small-font-size: 18px;
-    --thin-font-weight: 150;
+    /* Толщина шрифта: 100 - тонкий, 1000 - жирный*/
+    --thin-font-weight: 350;
+    /* Ширина карусели*/
     --width-carousel: 40vw;
+    /* Ширина текстовых блоков*/
     --width: 40%;
+    /* Размер заголовков для мобильной версии*/
+    --mobile-big-font-size: 20px;
+    /* Размер текста для мобильной версии*/
+    --mobile-small-font-size: 13px;
+    /* Коэффициент умножения размера шрифта для сноски "*" */
+    --font-reduction-factor-description: 0.2;
+    /*Коэффициент умножения размера шрифта для отзывов*/
+    --font-reduction-factor-review: 0.8;
+    /*Время пульсации кнопки "Записаться на пробный созвон"*/
+    --pulse-time-animation-button: 1.5s;
 }
 
 body,
@@ -137,7 +155,6 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
 }
 
 .first-section-container__description,
@@ -192,13 +209,15 @@ header {
     content: "\f058";
     font-family: "Font Awesome 5 Free", serif;
     font-weight: 900;
-    color: var(--main-color);
+    color: var(--second-color);
     position: absolute;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
     left: 0;
 }
 
 .works__item--list:hover::before {
-    color: var(--second-color);
+    opacity: 1;
 }
 
 /* price-container */
@@ -241,7 +260,7 @@ header {
 }
 
 .price-container__description {
-    font-size: var(--small-font-size)*0.2;
+    font-size: var(--small-font-size)*var(--font-reduction-factor-description);
     color: #666;
     margin-top: 20px;
     text-align: center;
@@ -259,88 +278,82 @@ header {
 .carousel__title {
     font-size: var(--big-font-size);
     font-weight: bold;
-    margin-bottom: 20px;
-    margin-top: 20px;
     text-align: center;
 }
 
 .carousel-container {
-    position: relative;
     width: var(--width-carousel);
     margin: auto;
-    padding: 20px;
     border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.reviews-container {
-    overflow-x: hidden;
-    padding-left: 25px;
-    padding-right: 25px;
-}
-
-.review {
-    width: 100%;
-    background-color: #fff;
-    border-radius: 10px;
-    opacity: 0;
-    display: none;
-    transform: scale(0.95);
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0s linear 0.5s;
-}
-
-.review.active {
-    display: block;
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0s linear 0s;
-    animation: appearance 2s forwards;
 }
 
 .author {
-    font-weight: bold;
     color: #333;
-    margin-bottom: 10px;
     display: block;
-    font-size: var(--small-font-size)*0.8;
+    font-size: var(--small-font-size)*var(--font-reduction-factor-review);
     font-weight: var(--thin-font-weight);
+    text-align: center;
+}
+
+.author i {
+    padding-left: 10px;
+    color: #0088cc
+}
+
+.author:hover {
+    text-decoration: none;
+    color: #0056b3
+}
+
+.author:hover i {
+    animation: pulse 0.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .review-text {
-    font-size: var(--small-font-size)*0.8;
+    font-size: var(--small-font-size)*var(--font-reduction-factor-review);
     line-height: 1.5;
     color: #666;
     text-align: justify;
     margin: auto;
     font-weight: var(--thin-font-weight);
+    padding-bottom: 10px;
 }
 
-.carousel-prev,
-.carousel-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px;
-    color: #333;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    transition: color 0.3s ease;
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-image: none !important;
 }
 
-.carousel-prev:hover,
-.carousel-next:hover {
-    color: #000;
+.carousel-control-prev i,
+.carousel-control-next i {
+    font-size: var(--big-font-size);
+    color: var(--second-color);
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
-.carousel-prev {
-    left: 10px;
+.carousel-control-prev:hover i,
+.carousel-control-next:hover i {
+    opacity: 1;
 }
 
-.carousel-next {
-    right: 10px;
+.carousel-inner {
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 /* write-me-button*/
@@ -364,21 +377,9 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: pulse var(--pulse-time-animation-button) infinite ease-in-out;
 }
 
-.write-me-button:hover {
-    transform: scale(1.02);
-}
-
-@keyframes appearance {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
 
 @media screen and (max-width: 804px) {
     header {
@@ -400,7 +401,7 @@ header {
     .works__title--main,
     .price-container__title,
     .carousel__title {
-        font-size: 20px;
+        font-size: var(--mobile-big-font-size);
     }
 
     .description__text,
@@ -409,8 +410,9 @@ header {
     .review-text,
     .price-container__item-name,
     .price-container__item-price,
-    .footer__description {
-        font-size: 13px;
+    .footer__description,
+    .write-me-button {
+        font-size: var(--mobile-small-font-size);
     }
 
     .first-section-container__description,
@@ -420,12 +422,17 @@ header {
         width: 90%;
     }
 
-    .carousel-container {
-        width: 80vw;
+    .price-container__description {
+        font-size: 12px;
     }
 
-    .write-me-button {
-        font-size: 20px;
+    .carousel-container {
+        width: 100%;
+    }
+
+    .carousel-inner {
+        padding-left: 15%;
+        padding-right: 15%;
     }
 
 }
