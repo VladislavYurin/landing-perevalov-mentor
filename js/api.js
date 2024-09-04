@@ -62,6 +62,12 @@ class API {
     createReviewElement(review, id) {
         const reviewDiv = document.createElement('div');
         reviewDiv.className = 'carousel-item';
+        if (id == 0) {
+            reviewDiv.classList.add("active");
+            reviewDiv.setAttribute("data-bs-interval", "1");
+        } else {
+            reviewDiv.setAttribute("data-bs-interval", "1000000");
+        }
 
         const authorA = document.createElement('a');
         authorA.className = 'author';
@@ -75,13 +81,9 @@ class API {
         const textDiv = document.createElement('div');
         textDiv.className = 'review-text';
         textDiv.innerHTML = review.text;
-
+        
         reviewDiv.appendChild(textDiv);
         reviewDiv.appendChild(authorA);
-
-        if (id == 0) {
-            reviewDiv.classList.add("active");
-        }
 
         return reviewDiv;
     }
