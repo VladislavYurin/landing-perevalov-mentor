@@ -49,7 +49,7 @@ class API {
     }
 
     parseReview(reviewString) {
-        const lines = reviewString.split('\n').slice(1);
+        const lines = reviewString.split('\n').slice(2);
         lines.pop();
         const authorLine = lines[lines.length - 1];
         const author = authorLine.replace("Автор: ", "");
@@ -64,7 +64,7 @@ class API {
         reviewDiv.className = 'carousel-item';
         if (id == 0) {
             reviewDiv.classList.add("active");
-            reviewDiv.setAttribute("data-bs-interval", "1");
+            reviewDiv.setAttribute("data-bs-interval", "1000000");
         } else {
             reviewDiv.setAttribute("data-bs-interval", "1000000");
         }
@@ -80,8 +80,8 @@ class API {
 
         const textDiv = document.createElement('div');
         textDiv.className = 'review-text';
-        textDiv.innerHTML = review.text;
-        
+        textDiv.innerHTML = "“ " + review.text + " ”";
+
         reviewDiv.appendChild(textDiv);
         reviewDiv.appendChild(authorA);
 
@@ -98,17 +98,38 @@ class API {
             indicatorButton.className = "active";
             indicatorButton.setAttribute("aria-current", "true");
         }
-        return indicatorButton
+        return indicatorButton;
+    }
+
+    createLastSlideElement() {
+        const reviewDiv = document.createElement('div');
+        reviewDiv.className = 'carousel-item';
+        reviewDiv.setAttribute("data-bs-interval", "1000000");
+
+        const link = document.createElement('a');
+        link.className = 'author last-slide';
+        link.textContent = "Ознакомиться со всеми отзывами";
+        link.href = "https://t.me/it_mentors";
+
+        const telegramLogo = document.createElement("i");
+        telegramLogo.className = "fa-brands fa-telegram";
+        link.appendChild(telegramLogo);
+
+        reviewDiv.appendChild(link);
+
+        return reviewDiv;
     }
 
     displayReviews(reviews) {
         const reviewsContainer = document.querySelector('.carousel-inner');
-        const indicatorsContainer = document.querySelector('.carousel-indicators')
+        // const indicatorsContainer = document.querySelector('.carousel-indicators')
         reviews.forEach((review, id) => {
             const reviewElement = this.createReviewElement(this.parseReview(review), id);
-            const indicatorButton = this.createIndicatorElement(id);
+            // const indicatorButton = this.createIndicatorElement(id);
             reviewsContainer.appendChild(reviewElement);
-            indicatorsContainer.appendChild(indicatorButton);
+            // indicatorsContainer.appendChild(indicatorButton);
         });
+        const lastSlide = this.createLastSlideElement();
+        reviewsContainer.appendChild(lastSlide);
     }
 }

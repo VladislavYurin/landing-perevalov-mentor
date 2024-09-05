@@ -162,7 +162,8 @@ header {
 
 .description__title,
 .review__title,
-.works__title--main {
+.works__title--main,
+.price-container__title {
     font-size: var(--big-font-size);
     font-weight: bold;
     margin-bottom: 20px;
@@ -174,24 +175,18 @@ header {
     font-size: var(--small-font-size);
     line-height: 1.6;
     font-weight: var(--thin-font-weight);
-}
-
-.description__text--big {
-    margin-bottom: 15px;
-    font-size: var(--small-font-size);
     text-align: justify;
 }
 
-.description__text--small {
+.first-section-container__description .description__text:not(:last-child) {
     margin-bottom: 15px;
-    font-size: var(--small-font-size);
-    text-align: justify;
 }
 
 .works {
     list-style-type: none;
     padding-left: 0;
     padding-top: 10px;
+    line-height: 1.6;
 }
 
 .works__item--list {
@@ -223,15 +218,9 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px;
+    padding: 20px 0px;
     width: var(--width);
-    margin: 0 auto;
-}
-
-.price-container__title {
-    font-size: var(--big-font-size);
-    font-weight: bold;
-    margin-bottom: 30px;
+    margin: 0px auto;
 }
 
 .price-container__item {
@@ -255,6 +244,7 @@ header {
 .price-container__item-price {
     color: var(--second-color);
     font-weight: bold;
+    text-align: right;
 }
 
 .price-container__description {
@@ -277,16 +267,21 @@ header {
     font-size: var(--big-font-size);
     font-weight: bold;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .carousel-container {
     width: var(--width-carousel);
-    margin: auto;
+    margin: 0px auto;
     border-radius: 10px;
 }
 
+.carousel-item {
+    min-height: 10vh;
+}
+
 .author {
-    color: #333;
+    color: var(--second-color);
     display: block;
     font-size: var(--small-font-size)*var(--font-reduction-factor-review);
     font-weight: var(--thin-font-weight);
@@ -295,16 +290,19 @@ header {
 
 .author i {
     padding-left: 10px;
-    color: #0088cc
-}
-
-.author:hover {
-    text-decoration: none;
-    color: #0056b3
+    color: var(--second-color);
+    opacity: 0.5;
 }
 
 .author:hover i {
     animation: pulse 0.5s infinite ease-in-out;
+    color: var(--second-color);
+    opacity: 1;
+}
+
+.last-slide {
+    font-size: var(--small-font-size);
+    padding-top: 4vh;
 }
 
 @keyframes pulse {
@@ -356,7 +354,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .write-me-button {
@@ -424,7 +422,7 @@ header {
         width: 100%;
     }
 
-    .review-text{
+    .review-text {
         padding-left: 14%;
         padding-right: 14%;
     }
