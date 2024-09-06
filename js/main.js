@@ -38,3 +38,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const carousel = document.getElementById('carousel');
+
+  carousel.addEventListener('slid.bs.carousel', function () {
+    const activeSlide = carousel.querySelector('.carousel-item.active');
+    const lastSlide = document.querySelector('.last-slide');
+    const quotesImage = document.querySelector('.quotes');
+    if (activeSlide === lastSlide.parentNode) {
+      quotesImage.style.opacity = '0';
+    } else {
+      quotesImage.style.opacity = '0.2';
+    }
+  });
+});

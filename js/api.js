@@ -80,7 +80,7 @@ class API {
 
         const textDiv = document.createElement('div');
         textDiv.className = 'review-text';
-        textDiv.innerHTML = "“ " + review.text + " ”";
+        textDiv.innerHTML = review.text;
 
         reviewDiv.appendChild(textDiv);
         reviewDiv.appendChild(authorA);
@@ -88,18 +88,18 @@ class API {
         return reviewDiv;
     }
 
-    createIndicatorElement(id) {
-        const indicatorButton = document.createElement('button');
-        indicatorButton.setAttribute("type", "button");
-        indicatorButton.setAttribute("data-bs-target", "#carousel");
-        indicatorButton.setAttribute("data-bs-slide-to", id);
-        indicatorButton.setAttribute("aria-label", "Slide " + (id + 1));
-        if (id == 0) {
-            indicatorButton.className = "active";
-            indicatorButton.setAttribute("aria-current", "true");
-        }
-        return indicatorButton;
-    }
+    // createIndicatorElement(id) {
+    //     const indicatorButton = document.createElement('button');
+    //     indicatorButton.setAttribute("type", "button");
+    //     indicatorButton.setAttribute("data-bs-target", "#carousel");
+    //     indicatorButton.setAttribute("data-bs-slide-to", id);
+    //     indicatorButton.setAttribute("aria-label", "Slide " + (id + 1));
+    //     if (id == 0) {
+    //         indicatorButton.className = "active";
+    //         indicatorButton.setAttribute("aria-current", "true");
+    //     }
+    //     return indicatorButton;
+    // }
 
     createLastSlideElement() {
         const reviewDiv = document.createElement('div');
@@ -108,7 +108,7 @@ class API {
 
         const link = document.createElement('a');
         link.className = 'author last-slide';
-        link.textContent = "Ознакомиться со всеми отзывами";
+        link.innerHTML = `Ознакомиться со всеми отзывами <br> по #smash_buster`;
         link.href = "https://t.me/it_mentors";
 
         const telegramLogo = document.createElement("i");
