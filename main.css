@@ -363,13 +363,14 @@ header {
     opacity: 1;
 }
 
-.quotes{
+.quotes {
     position: absolute;
     top: -2vh;
     left: 4vw;
     z-index: 0;
     width: 80px;
     transition: opacity 0.5s ease-in-out;
+    opacity: 0.2;
 }
 
 /* write-me-button*/
@@ -450,7 +451,7 @@ header {
         padding-right: 14%;
     }
 
-    .quotes{
+    .quotes {
         top: -2vh;
         left: 8vw;
         width: 70px;
