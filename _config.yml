@@ -38,7 +38,7 @@ exclude:
 
 # Настройки GitHub Pages
 github:
-  repository_url: https://github.com/VladislavYurin/landing-perevalov-mentor
+  repository_url: https://github.com/3x6th/landing-mentor
 
 # Дополнительные настройки
 timezone: Europe/Moscow
