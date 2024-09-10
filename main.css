@@ -28,6 +28,10 @@
     --font-reduction-factor-review: 0.8;
 }
 
+/* *{
+    outline: 1px solid green !important;
+} */
+
 body,
 html {
     height: 100%;
@@ -164,7 +168,8 @@ header {
 .description__title,
 .review__title,
 .works__title--main,
-.price-container__title {
+.price-container__title,
+.payment__title {
     font-size: var(--big-font-size);
     font-weight: bold;
     margin-bottom: 20px;
@@ -219,9 +224,8 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 0px;
     width: var(--width);
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 .price-container__item {
@@ -332,19 +336,6 @@ header {
     padding-right: 12%;
 }
 
-/* .quote-left {
-    position: absolute;
-    left: 8%;
-    top: 0;
-    font-size: var(--big-font-size);
-} */
-
-/* .quote-right {
-    position: absolute;
-    right: 8%;
-    bottom: 5%;
-} */
-
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-image: none !important;
@@ -375,13 +366,16 @@ header {
 
 /* write-me-button*/
 .button-container {
+    width: var(--width);
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+    justify-content: space-around;
+    margin: 0px auto;
+    padding: 20px 0px;
 }
 
-.write-me-button {
+.write-me-button,
+.payment-button {
     background-color: var(--second-color);
     font-size: var(--small-font-size);
     border-radius: 50px;
@@ -394,8 +388,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 20px 0;
 }
-
 
 @media screen and (max-width: 804px) {
     header {
@@ -433,7 +427,8 @@ header {
 
     .first-section-container__description,
     .first-section-container__works,
-    .price-container {
+    .price-container,
+    .button-container {
         padding: 10px;
         width: 90%;
     }
@@ -459,7 +454,7 @@ header {
 
 }
 
-/* .payform-tbank {
+.payform-tbank {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -502,4 +497,12 @@ header {
 .payform-tbank-btn:hover {
     background-color: #FAB619;
     border: 1px solid #FAB619;
-} */
+}
+
+.payment-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

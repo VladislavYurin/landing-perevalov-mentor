@@ -1,0 +1,52 @@
+# Основные настройки
+title: Perevalov Java Mentor
+description: Ментор по Java Backend, помогу с трудоустройством, повышением грейда, проведу от нуля до офферов.
+url: https://vladislavyurin.github.io/landing-perevalov-mentor/
+
+# Настройки Jekyll
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Настройки темы
+theme: minima
+
+# Параметры по умолчанию
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Настройка навигации
+nav:
+  - title: Главная
+    url: /
+  - title: Оплата
+    url: /payment
+
+# Настройки сборки
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Настройки GitHub Pages
+github:
+  repository_url: https://github.com/VladislavYurin/landing-perevalov-mentor
+
+# Дополнительные настройки
+timezone: Europe/Moscow
+encoding: utf-8
+future: false
+lsi: false
+safe: true
+source_code: true
+highlighter: rouge
+gist:
+  noscript: false
