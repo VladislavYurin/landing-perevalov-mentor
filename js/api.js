@@ -1,8 +1,8 @@
 class API {
     constructor() {
-        this.url = "https://proxy.cors.sh/" + "https://reviews.it-mentors.ru";
+        this.url = "https://reviews.it-mentors.ru";
         this.id = '388052505';
-        this.initMethod = "/reviews-json";
+        this.initMethod = "reviews-json";
     }
 
     async getReviews() {
@@ -12,7 +12,6 @@ class API {
         while (nextUrl) {
             const data = await this.getReview(nextUrl);
             reviews.push(...data.reviews);
-
             if (data.next) {
                 nextUrl = this.url + data.next;
             } else {
@@ -37,12 +36,7 @@ class API {
                 }
             });
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            const data = await response.json();
-            return data;
+            return await response.json();
         } catch (error) {
             throw error;
         }
@@ -51,12 +45,17 @@ class API {
     parseReview(reviewString) {
         const lines = reviewString.split('\n').slice(2);
         lines.pop();
-        const authorLine = lines[lines.length - 1];
-        const author = authorLine.replace("Автор: ", "");
+        const authorLine = lines[lines.length - 2];
+        const author = this.parseUsername(authorLine);
+        console.log(author)
         lines.splice(-2);
         const text = lines.join('<br>').trim();
-
         return { author, text };
+    }
+
+    parseUsername(authorLine) {
+        const match = authorLine.match(/Автор: (.+)$/m);
+        return match && match[1] || null;
     }
 
     createReviewElement(review, id) {
