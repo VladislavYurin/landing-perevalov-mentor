@@ -2,10 +2,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const api = new API();
 
     const response = await api.getReviews();
-    console.log(response.reviews);
     // const response = await fetch('./src/reviews.json');
     // reviews = await fetchedReviews.json();
-
     api.displayReviews(response.reviews);
 });
 

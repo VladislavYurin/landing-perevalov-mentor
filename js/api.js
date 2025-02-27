@@ -43,13 +43,29 @@ class API {
     }
 
     parseReview(reviewString) {
-        const lines = reviewString.split('\n').slice(2);
-        lines.pop();
-        const authorLine = lines[lines.length - 2];
+        const lines = reviewString.split('\n');
+
+        // Находим последнюю строку с автором, начиная с конца
+        let authorIndex = -1;
+        for (let i = lines.length - 1; i >= 0; i--) {
+            if (/Автор:/.test(lines[i])) {
+                authorIndex = i;
+                break;
+            }
+        }
+
+        if (authorIndex === -1) {
+            return { author: null, text: lines.slice(2).join('<br>') };
+        }
+
+        // Извлекаем автора
+        const authorLine = lines[authorIndex];
         const author = this.parseUsername(authorLine);
-        console.log(author)
-        lines.splice(-2);
-        const text = lines.join('<br>').trim();
+
+        // Собираем текст до автора
+        const textLines = lines.slice(2, authorIndex);
+        const text = textLines.join('<br>');
+
         return { author, text };
     }
 
